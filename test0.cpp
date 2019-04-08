@@ -18,9 +18,24 @@ void test_write() {
 	assert(paper != second);
 	string expected_output = "She sells sea shells down by the sea shore";
 	assert(paper == expected_output);
-	cout << "test_write passed!" << endl;
+	cout << "test_write() passed!" << endl;
+}
+
+void test_new_lines() {
+	//more advanced write test case to see how new lines will be treated
+	string paper = "";
+	string first = "hello \n";
+	write(paper, first);
+	string second = "world";
+	write(paper, second);
+	string expected = "hello \nworld";
+	assert(paper == expected);
+	cout << "paper :" << paper << endl;
+	cout << "expected string: " << expected << endl;
+	cout << "test_new_lines() passed!" << endl;
 }
 
 int main() {
 	test_write();
+	test_new_lines();
 }
