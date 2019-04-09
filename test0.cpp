@@ -30,11 +30,7 @@ void test_erase() {
 	assert(paper == expected);
 	//erase chuck again
 	erase(paper, chuck);
-	cout << chuck << endl;
 	expected = "How much wood would a woodchuck chuck if a wood      could       wood?";
-	//manually compare the content of paper to expected output
-	cout << paper << endl;
-	cout << expected << endl;
 	assert(paper == expected);
 	cout << "test_erase() passed!" << endl;
 }
