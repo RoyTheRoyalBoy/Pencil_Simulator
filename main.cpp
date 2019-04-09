@@ -13,11 +13,11 @@ int main() {
 	cout << "Type 'quit' to close the pencil simulator" << endl;
 	string paper;
 	while (true) { //accepts inputs until "quit" is called, then close application
-		cout << "enter a command: ";
+		cout << "Enter a command: ";
 		string command;
 		cin >> command;
 		if (command == "write") { //call write function to add input to paper
-			string input;
+			string input;	
 			getline(cin, input);
 			input.erase(0,1);
 			cout << "Pencil wrote: " << input << endl;
