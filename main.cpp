@@ -1,5 +1,4 @@
 #include "Pencil.h"
-#include <iostream>
 
 using namespace std;
 

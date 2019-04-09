@@ -10,8 +10,9 @@ void write(string &paper, string &input) {
 
 void erase(string &paper, string &input) {
 	//find the position of the last instance of input
-	size_t end = paper.find_last_of(input) + 1;
-	size_t start = end - input.length();
+	//simulate a substring with start and end value
+	size_t start = paper.rfind(input);
+	size_t end = start + input.length();
 	//replace this substring with space
 	while (start != end) {
 		paper.replace(start, size_t(1), " ");
