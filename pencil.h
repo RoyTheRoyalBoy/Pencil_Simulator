@@ -6,7 +6,7 @@
 #include <vector>
 
 struct pencil {
-	int point = 100;
+	int point = 40000;
 	int eraser = 100;
 };
 

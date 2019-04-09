@@ -59,12 +59,14 @@ void test_point_durability() {
 	write(pen, paper, text);
 	//output should be same as input since durability doesn't run out
 	assert(paper == text);
-	//reset paper
+	//reset paper and pencil
 	paper = "";
+	pen.point = 4;
 	string Text = "Text";
-	write(pen, paper, text);
-	string expected = "Tex";
-	//output should not contain the last t due to point durability running out
+	write(pen, paper, Text);
+	string expected = "Tex ";
+	//output should replace the last T with space due to point durability running out 
+	//since T takes up 2 points of durability
 	assert(paper == expected);
 	cout << "test_point_durability() passed!" << endl;
 }

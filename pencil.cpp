@@ -4,9 +4,22 @@ using namespace std;
 
 
 void write(pencil& pencil, string &paper, string &input) {
-	//simply append input onto paper
-	pencil.point = 100;
-	paper += input;
+	//measure durability amount, evaluate whether the next character can be added
+	for (unsigned int i = 0; i < input.length(); i++) {
+		if (pencil.point > 0) {
+			if(isupper(input[i])) {
+				pencil.point -= 2;
+			}
+			else if(islower(input[i])) {
+				pencil.point--;
+			}
+			paper += input[i];
+		}
+		else{
+			paper += " ";
+		}
+	}
+
 }
 
 void erase(string &paper, string &input) {
@@ -24,11 +37,4 @@ void erase(string &paper, string &input) {
 			start++;
 		}
 	}
-}
-
-void create_pencil(vector<pencil> &pencils, int &point, int &eraser) {
-	pencil new_pencil;
-	new_pencil.point = point;
-	new_pencil.eraser = eraser;
-	pencils.push_back(new_pencil);
 }
