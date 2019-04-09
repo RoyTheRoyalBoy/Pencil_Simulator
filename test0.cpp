@@ -50,8 +50,27 @@ void test_erase_edge() {
 }
 
 void test_point_durability() {
-	//testing point durability
+	//testing point durability of pencil
+	pencil pen;
+	string paper = "";
+	//set point durability to 4
+	pen.point = 4;
+	string text = "text";
+	write(pen, paper, text);
+	//output should be same as input since durability doesn't run out
+	assert(paper == text);
+	//reset paper
+	paper = "";
+	string Text = "Text";
+	write(pen, paper, text);
+	string expected = "Tex";
+	//output should not contain the last t due to point durability running out
+	assert(paper == expected);
+	cout << "test_point_durability() passed!" << endl;
+}
 
+void test_sharpen() {
+	//testing the sharpen function
 }
 
 void test_erase_durability() {
@@ -62,4 +81,5 @@ int main() {
 	test_write();
 	test_erase();
 	test_erase_edge();
+	test_point_durability();
 }
