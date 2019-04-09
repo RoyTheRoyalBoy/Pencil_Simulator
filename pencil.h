@@ -3,8 +3,15 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
-void write(std::string &paper, std::string &input);
+struct pencil {
+	int point = 100;
+	int eraser = 100;
+};
+
+void write(pencil &pencil, std::string &paper, std::string &input);
 void erase(std::string &paper, std::string &input);
+void create_pencil(std::vector<pencil> &pencils, int &point, int &eraser);
 
 #endif

@@ -6,13 +6,15 @@ using namespace std;
 //Tests cases designed to test out our pencil
 
 void test_write() {
+	//new process, create pencil named pen
+	pencil pen;
 	//simple write test, see if output matches what we expect
 	string paper = "";
 	string first = "She sells sea shells";
-	write(paper, first);
+	write(pen, paper, first);
 	assert(paper == first);
 	string second = " down by the sea shore";
-	write(paper, second);
+	write(pen, paper, second);
 	assert(paper != second);
 	string expected_output = "She sells sea shells down by the sea shore";
 	assert(paper == expected_output);
@@ -39,7 +41,7 @@ void test_erase_edge() {
 	//testing edge cases for erase function
 	//test if sub-string does not exist
 	string paper = "hello world!";
-	string not_existant = "not in this string";
+	string not_existant = "not";
 	//nothing should change, outcome should be same as paper
 	string outcome = paper;
 	erase(paper, not_existant);
@@ -47,6 +49,14 @@ void test_erase_edge() {
 	cout << "test_erase_not_exist() passed!" << endl;
 }
 
+void test_point_durability() {
+	//testing point durability
+
+}
+
+void test_erase_durability() {
+
+}
 
 int main() {
 	test_write();

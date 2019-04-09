@@ -3,8 +3,9 @@
 using namespace std;
 
 
-void write(string &paper, string &input) {
+void write(pencil& pencil, string &paper, string &input) {
 	//simply append input onto paper
+	pencil.point = 100;
 	paper += input;
 }
 
@@ -23,4 +24,11 @@ void erase(string &paper, string &input) {
 			start++;
 		}
 	}
+}
+
+void create_pencil(vector<pencil> &pencils, int &point, int &eraser) {
+	pencil new_pencil;
+	new_pencil.point = point;
+	new_pencil.eraser = eraser;
+	pencils.push_back(new_pencil);
 }
