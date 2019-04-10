@@ -13,8 +13,8 @@ struct Pencil {
 };
 
 void write(Pencil &pencil, std::string &paper, std::string &input);
-void erase(std::string &paper, std::string &input);
+bool erase(std::string &paper, std::string &input);
 //void create_pencil(std::vector<Pencil> &pencils, int &point, int &eraser);
-void sharpen(Pencil &pencil);
+bool sharpen(Pencil &pencil);
 
 #endif

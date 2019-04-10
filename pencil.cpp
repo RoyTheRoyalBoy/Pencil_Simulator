@@ -22,12 +22,13 @@ void write(Pencil& pencil, string &paper, string &input) {
 
 }
 
-void erase(string &paper, string &input) {
+bool erase(string &paper, string &input) {
 	//find the position of the last instance of input
 	//simulate a substring with start and end value
 	size_t start = paper.rfind(input);
 	if (start == string::npos) {
-		cout << "Word does not exist on paper!" << endl;
+		return false;
+		//cout << "Word does not exist on paper!" << endl;
 	}
 	else {
 		size_t end = start + input.length();
@@ -36,17 +37,22 @@ void erase(string &paper, string &input) {
 			paper.replace(start, size_t(1), " ");
 			start++;
 		}
+		return true;
 	}
+	return true;
 }
 
-void sharpen(Pencil& pencil) {
+bool sharpen(Pencil& pencil) {
 	//set point durability back to original point durability
 	//only do this if length is greater than 0
 	if (pencil.length > 0) {
 		pencil.point = pencil.orig_point;
 		pencil.length--;
+		return true;
 	}
 	else {
-		cout << "Pencil too short, can't sharpen!" << endl;
+		return false;
+		//cout << "Pencil too short, can't sharpen!" << endl;
 	}
+	return true;
 }
