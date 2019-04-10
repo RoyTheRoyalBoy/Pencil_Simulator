@@ -82,7 +82,7 @@ void test_sharpen() {
 	//set current point to 5 to simulate usage
 	pencil.curr_point = 5;
 	//make sure that this value was changed prior to sharpen function
-	assert(pencil.curr_point != 10);
+	assert(pencil.curr_point != 40000);
 	sharpen(pencil);
 	//assert that sharpening resets the point durability back to 40000
 	assert(pencil.curr_point == 40000);
@@ -143,7 +143,15 @@ void test_edit() {
 	string collision = "An artich@k@ay keeps the doctor away";
 	edit(pencil, paper, artichoke, erased);
 	assert(paper == collision);
-	//assume editing is also affected by eraser and pencil degradation
+	//assume editing is also affected by pencil degradation
+	//set pencil current point to 4
+	pencil.curr_point = 7;
+	//reset paper one more time
+	paper = "An       a day keeps the doctor away";
+	edit(pencil, paper, artichoke, erased);
+	//only articho should be written down, and @ takes up a point durability
+	string not_finished = "An artich@ day keeps the doctor away";
+	assert(paper == not_finished);
 	cout << "test_edit() passed!" << endl;
 }
 

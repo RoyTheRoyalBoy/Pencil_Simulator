@@ -8,9 +8,11 @@ void write(Pencil& pencil, string &paper, string &input) {
 	for (unsigned int i = 0; i < input.length(); i++) {
 		if (pencil.curr_point > 0) {
 			if(isupper(input[i])) {
+				//decrement by 2 on capitals
 				pencil.curr_point -= 2;
 			}
-			else if(islower(input[i])) {
+			else if(islower(input[i]) || input[i] != ' ') {
+				//decrement by 1 on lower case or special characters
 				pencil.curr_point--;
 			}
 			paper += input[i];
@@ -78,7 +80,7 @@ bool edit(Pencil &pencil, string &paper, string &add, string &deleted) {
 				if(isupper(add[i])) {
 					pencil.curr_point -= 2;
 				}
-				else if(islower(add[i])) {
+				else if(islower(add[i]) || add[i] != ' ') {
 					pencil.curr_point--;
 				}
 				if (paper[start] != ' ') {
