@@ -6,7 +6,7 @@
 #include <vector>
 
 struct Pencil {
-	int point = 100;
+	int curr_point = 100;
 	int orig_point = 100;
 	int eraser = 100;
 	int length = 10;

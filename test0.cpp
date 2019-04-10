@@ -53,15 +53,15 @@ void test_point_durability() {
 	//testing point durability of pencil
 	Pencil pencil;
 	string paper = "";
-	//set point durability to 4
-	pencil.point = 4;
+	//set current point durability to 4
+	pencil.curr_point = 4;
 	string text = "text";
 	write(pencil, paper, text);
 	//output should be same as input since durability doesn't run out
 	assert(paper == text);
 	//reset paper and pencil
 	paper = "";
-	pencil.point = 4;
+	pencil.curr_point = 4;
 	string Text = "Text";
 	write(pencil, paper, Text);
 	string expected = "Tex ";
@@ -77,13 +77,13 @@ void test_sharpen() {
 	//in this case, set orig_point to 40000
 	Pencil pencil;
 	pencil.orig_point = 40000;
-	//set actual point to 5 to simulate usage
-	pencil.point = 5;
+	//set current point to 5 to simulate usage
+	pencil.curr_point = 5;
 	//make sure that this value was changed prior to sharpen function
-	assert(pencil.point != 10);
+	assert(pencil.curr_point != 10);
 	sharpen(pencil);
 	//assert that sharpening resets the point durability back to 40000
-	assert(pencil.point == 40000);
+	assert(pencil.curr_point == 40000);
 	cout << "test_sharpen() passed!" << endl;
 }
 
@@ -95,11 +95,11 @@ void test_length() {
 	//make sure sharpen reduced length by 1 
 	assert(pencil.length == 0);
 	//set point to 10 to simulate usage
-	pencil.point = 10;
+	pencil.curr_point = 10;
 	sharpen(pencil);
 	//since length is 0, sharpen should not have changed point from 10 nor length from 0
 	assert(pencil.length == 0);
-	assert(pencil.point == 10);
+	assert(pencil.curr_point == 10);
 	cout << "test_length() passed!" << endl;
 }
 

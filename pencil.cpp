@@ -6,12 +6,12 @@ using namespace std;
 void write(Pencil& pencil, string &paper, string &input) {
 	//measure durability amount, evaluate whether the next character can be added
 	for (unsigned int i = 0; i < input.length(); i++) {
-		if (pencil.point > 0) {
+		if (pencil.curr_point > 0) {
 			if(isupper(input[i])) {
-				pencil.point -= 2;
+				pencil.curr_point -= 2;
 			}
 			else if(islower(input[i])) {
-				pencil.point--;
+				pencil.curr_point--;
 			}
 			paper += input[i];
 		}
@@ -46,7 +46,7 @@ bool sharpen(Pencil& pencil) {
 	//set point durability back to original point durability
 	//only do this if length is greater than 0
 	if (pencil.length > 0) {
-		pencil.point = pencil.orig_point;
+		pencil.curr_point = pencil.orig_point;
 		pencil.length--;
 		return true;
 	}
