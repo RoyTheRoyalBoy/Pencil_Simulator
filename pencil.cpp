@@ -65,6 +65,29 @@ bool sharpen(Pencil& pencil) {
 	return true;
 }
 
-//void edit(Pencil &pencil, string &paper, string &add, string &deleted) {
-	
-//}
+bool edit(Pencil &pencil, string &paper, string &add, string &deleted) {
+	//find the erased substring
+	size_t start = paper.rfind(deleted) - 1;
+	if (start == string::npos) {
+		//can't find deleted string
+		return false;
+	}
+	else {
+		size_t end = start + deleted.length();
+		int index = 0;
+		while(start != end) {
+			if (pencil.curr_point > 0) {
+				if(isupper(add[index])) {
+					pencil.curr_point -= 2;
+				}
+				else if(islower(add[index])) {
+					pencil.curr_point--;
+				}
+				paper[start] = add[index];
+			}
+			index++;
+			start++;
+		}
+	}
+	return true;
+}

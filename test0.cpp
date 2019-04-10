@@ -135,6 +135,7 @@ void test_edit() {
 	edit(pencil, paper, onion, erased);
 	//onion is now edited into the white space
 	string expected = "An onion a day keeps the doctor away";
+	cout << paper << endl;
 	assert(paper == expected);
 	//reset paper for another test
 	paper = "An       a day keeps the doctor away";
