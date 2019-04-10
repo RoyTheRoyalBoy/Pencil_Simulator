@@ -114,4 +114,5 @@ int main() {
 	test_erase_edge();
 	test_point_durability();
 	test_sharpen();
+	test_length();
 }

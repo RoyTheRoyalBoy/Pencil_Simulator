@@ -9,6 +9,7 @@ struct Pencil {
 	int point = 100;
 	int orig_point = 100;
 	int eraser = 100;
+	int length = 10;
 };
 
 void write(Pencil &pencil, std::string &paper, std::string &input);
