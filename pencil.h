@@ -5,13 +5,15 @@
 #include <iostream>
 #include <vector>
 
-struct pencil {
-	int point = 40000;
+struct Pencil {
+	int point = 100;
+	int orig_point = 100;
 	int eraser = 100;
 };
 
-void write(pencil &pencil, std::string &paper, std::string &input);
+void write(Pencil &pencil, std::string &paper, std::string &input);
 void erase(std::string &paper, std::string &input);
-void create_pencil(std::vector<pencil> &pencils, int &point, int &eraser);
+//void create_pencil(std::vector<Pencil> &pencils, int &point, int &eraser);
+void sharpen(Pencil &pencil);
 
 #endif

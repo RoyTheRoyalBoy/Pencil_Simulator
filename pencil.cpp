@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void write(pencil& pencil, string &paper, string &input) {
+void write(Pencil& pencil, string &paper, string &input) {
 	//measure durability amount, evaluate whether the next character can be added
 	for (unsigned int i = 0; i < input.length(); i++) {
 		if (pencil.point > 0) {
@@ -37,4 +37,9 @@ void erase(string &paper, string &input) {
 			start++;
 		}
 	}
+}
+
+void sharpen(Pencil& pencil) {
+	//set point durability back to original point durability
+	pencil.point = pencil.orig_point;
 }

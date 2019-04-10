@@ -6,15 +6,15 @@ using namespace std;
 //Tests cases designed to test out our pencil
 
 void test_write() {
-	//new process, create pencil named pen
-	pencil pen;
+	//new process, create Pencil named pencil
+	Pencil pencil;
 	//simple write test, see if output matches what we expect
 	string paper = "";
 	string first = "She sells sea shells";
-	write(pen, paper, first);
+	write(pencil, paper, first);
 	assert(paper == first);
 	string second = " down by the sea shore";
-	write(pen, paper, second);
+	write(pencil, paper, second);
 	assert(paper != second);
 	string expected_output = "She sells sea shells down by the sea shore";
 	assert(paper == expected_output);
@@ -51,19 +51,19 @@ void test_erase_edge() {
 
 void test_point_durability() {
 	//testing point durability of pencil
-	pencil pen;
+	Pencil pencil;
 	string paper = "";
 	//set point durability to 4
-	pen.point = 4;
+	pencil.point = 4;
 	string text = "text";
-	write(pen, paper, text);
+	write(pencil, paper, text);
 	//output should be same as input since durability doesn't run out
 	assert(paper == text);
 	//reset paper and pencil
 	paper = "";
-	pen.point = 4;
+	pencil.point = 4;
 	string Text = "Text";
-	write(pen, paper, Text);
+	write(pencil, paper, Text);
 	string expected = "Tex ";
 	//output should replace the last T with space due to point durability running out 
 	//since T takes up 2 points of durability
@@ -73,15 +73,18 @@ void test_point_durability() {
 
 void test_sharpen() {
 	//testing the sharpen function
-	//all pencils will start with value of 40000 point durability
-	//sharpen just set point durability back to 40000
-	pencil pen;
-	pen.point = 1;
+	//Pencil will be given an original point durability value
+	//in this case, set orig_point to 40000
+	Pencil pencil;
+	pencil.orig_point = 40000;
+	//set actual point to 5 to simulate usage
+	pencil.point = 5;
 	//make sure that this value was changed prior to sharpen function
-	assert(pen.point != 40000);
-	sharpen(pen);
-	//sharpen resets point to 40000
-	assert(pen.point == 40000);
+	assert(pencil.point != 10);
+	sharpen(pencil);
+	//assert that sharpening resets the point durability back to 40000
+	assert(pencil.point == 40000);
+	cout << "test_sharpen() passed!" << endl;
 }
 
 void test_erase_durability() {
@@ -93,4 +96,5 @@ int main() {
 	test_erase();
 	test_erase_edge();
 	test_point_durability();
+	test_sharpen();
 }
