@@ -4,6 +4,6 @@ This is my submission for the Pencil Durability Kata. During the development pro
 
 To run, simply navigate to the root directory and run the following commands: "make test" and "./test". 
 
-Refer to image below for further guidance:
+Please refer to image below for further guidance:
 
 ![demo](https://github.com/RoyTheRoyalBoy/Pencil_Simulator/blob/master/commands.png)
