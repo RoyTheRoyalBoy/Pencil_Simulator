@@ -41,5 +41,12 @@ void erase(string &paper, string &input) {
 
 void sharpen(Pencil& pencil) {
 	//set point durability back to original point durability
-	pencil.point = pencil.orig_point;
+	//only do this if length is greater than 0
+	if (pencil.length > 0) {
+		pencil.point = pencil.orig_point;
+		pencil.length--;
+	}
+	else {
+		cout << "Pencil too short, can't sharpen!" << endl;
+	}
 }

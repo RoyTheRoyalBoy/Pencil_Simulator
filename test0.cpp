@@ -94,7 +94,6 @@ void test_length() {
 	sharpen(pencil);
 	//make sure sharpen reduced length by 1 
 	assert(pencil.length == 0);
-	sharpen(pencil);
 	//set point to 10 to simulate usage
 	pencil.point = 10;
 	sharpen(pencil);
