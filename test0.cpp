@@ -73,6 +73,15 @@ void test_point_durability() {
 
 void test_sharpen() {
 	//testing the sharpen function
+	//all pencils will start with value of 40000 point durability
+	//sharpen just set point durability back to 40000
+	pencil pen;
+	pen.point = 1;
+	//make sure that this value was changed prior to sharpen function
+	assert(pen.point != 40000);
+	sharpen(pen);
+	//sharpen resets point to 40000
+	assert(pen.point == 40000);
 }
 
 void test_erase_durability() {
