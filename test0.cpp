@@ -73,7 +73,7 @@ void test_point_durability() {
 
 void test_sharpen() {
 	//testing the sharpen function
-	//Pencil will be given an original point durability value
+	//Pencil will be given an original point durability value, default at 100
 	//in this case, set orig_point to 40000
 	Pencil pencil;
 	pencil.orig_point = 40000;
@@ -85,6 +85,23 @@ void test_sharpen() {
 	//assert that sharpening resets the point durability back to 40000
 	assert(pencil.point == 40000);
 	cout << "test_sharpen() passed!" << endl;
+}
+
+void test_length() {
+	//testing the length aspect of pencil
+	Pencil pencil;
+	pencil.length = 1;
+	sharpen(pencil);
+	//make sure sharpen reduced length by 1 
+	assert(pencil.length == 0);
+	sharpen(pencil);
+	//set point to 10 to simulate usage
+	pencil.point = 10;
+	sharpen(pencil);
+	//since length is 0, sharpen should not have changed point from 10 nor length from 0
+	assert(pencil.length == 0);
+	assert(pencil.point == 10);
+	cout << "test_length() passed!" << endl;
 }
 
 void test_erase_durability() {
