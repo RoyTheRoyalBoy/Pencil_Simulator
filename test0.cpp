@@ -121,8 +121,8 @@ void test_erase_durability() {
 	string space = "lo B";
 	erase(pencil, paper, space);
 	//since space shouldn't decrement eraser value, 'o' should also be replaced
-	string check_space = "Buffal     ";
-	assert(paper == expected);
+	string check_space = "Buffal      ";
+	assert(paper == check_space);
 	cout << "test_erase_durability() passed!" << endl;
 }
 
