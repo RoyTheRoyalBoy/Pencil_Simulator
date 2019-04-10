@@ -23,15 +23,16 @@ void test_write() {
 
 void test_erase() {
 	//test erase functionality using the example provided by the specs
+	Pencil pencil;
 	string paper = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
 	//erase the last appearing chuck
 	string chuck = "chuck";
-	erase(paper, chuck);
+	erase(pencil, paper, chuck);
 	//check to see if last chuck has been erased
 	string expected = "How much wood would a woodchuck chuck if a woodchuck could       wood?";
 	assert(paper == expected);
 	//erase chuck again
-	erase(paper, chuck);
+	erase(pencil, paper, chuck);
 	expected = "How much wood would a woodchuck chuck if a wood      could       wood?";
 	assert(paper == expected);
 	cout << "test_erase() passed!" << endl;
@@ -39,12 +40,13 @@ void test_erase() {
 
 void test_erase_edge() {
 	//testing edge cases for erase function
+	Pencil pencil;
 	//test if sub-string does not exist
 	string paper = "hello world!";
 	string not_existant = "not";
 	//nothing should change, outcome should be same as paper
 	string outcome = paper;
-	erase(paper, not_existant);
+	erase(pencil, paper, not_existant);
 	assert(paper == outcome);
 	cout << "test_erase_not_exist() passed!" << endl;
 }
@@ -110,7 +112,7 @@ void test_erase_durability() {
 	//set eraser durability to 3 to simulate usage
 	pencil.eraser = 3;
 	string Bill = "Bill";
-	erase(paper, Bill);
+	erase(pencil, paper, Bill);
 	//due to eraser running out of durability, erase only last 3 characters
 	string expected = "Buffalo B   ";
 	assert(paper == expected);

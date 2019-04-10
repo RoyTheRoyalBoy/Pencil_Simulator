@@ -22,7 +22,7 @@ void write(Pencil& pencil, string &paper, string &input) {
 
 }
 
-bool erase(string &paper, string &input) {
+bool erase(Pencil &pencil, string &paper, string &input) {
 	//find the position of the last instance of input
 	//simulate a substring with start and end value
 	size_t start = paper.rfind(input);
@@ -34,7 +34,12 @@ bool erase(string &paper, string &input) {
 		size_t end = start + input.length();
 		//replace this substring with space
 		while (start != end) {
-			paper.replace(start, size_t(1), " ");
+			if (pencil.eraser > 0) {
+				paper.replace(start, size_t(1), " ");
+				if (input[start] != ' ') {
+					pencil.eraser--;
+				}
+			}
 			start++;
 		}
 		return true;
