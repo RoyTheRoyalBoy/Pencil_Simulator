@@ -64,3 +64,7 @@ bool sharpen(Pencil& pencil) {
 	}
 	return true;
 }
+
+//void edit(Pencil &pencil, string &paper, string &add, string &deleted) {
+	
+//}

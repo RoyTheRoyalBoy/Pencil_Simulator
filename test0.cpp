@@ -126,6 +126,26 @@ void test_erase_durability() {
 	cout << "test_erase_durability() passed!" << endl;
 }
 
+void test_edit() {
+	//testing the edit functionality
+	Pencil pencil;
+	string paper = "An       a day keeps the doctor away";
+	string erased = "     ";
+	string onion = "onion";
+	edit(pencil, paper, onion, erased);
+	//onion is now edited into the white space
+	string expected = "An onion a day keeps the doctor away";
+	assert(paper == expected);
+	//reset paper for another test
+	paper = "An       a day keeps the doctor away";
+	string artichoke = "artichoke";
+	//a collision should result in colliding non-space character to be replaced with @
+	string collision = "An artich@k@ay keeps the doctor away";
+	assert(paper == collision);
+	//assume editing is also affected by eraser and pencil degradation
+	cout << "test_edit() passed!" << endl;
+}
+
 int main() {
 	test_write();
 	test_erase();
@@ -134,4 +154,5 @@ int main() {
 	test_sharpen();
 	test_length();
 	test_erase_durability();
+	test_edit();
 }
