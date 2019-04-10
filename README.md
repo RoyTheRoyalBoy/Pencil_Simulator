@@ -7,3 +7,8 @@ To run, simply navigate to the root directory and run the following commands: "m
 Please refer to image below for further guidance:
 
 ![demo](https://github.com/RoyTheRoyalBoy/Pencil_Simulator/blob/master/commands.png)
+
+Thank you again for this opportunity as well as for your time and consideration. If you have any further questions, don't hesitate to contact me. 
+
+Sincerely, 
+Roy
