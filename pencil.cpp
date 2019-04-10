@@ -31,16 +31,19 @@ bool erase(Pencil &pencil, string &paper, string &input) {
 		//cout << "Word does not exist on paper!" << endl;
 	}
 	else {
-		size_t end = start + input.length();
+		size_t end = start + input.length() - 1;
 		//replace this substring with space
-		while (start != end) {
+		while (end != start - 1) {
+			//check if eraser is big enough to erase
 			if (pencil.eraser > 0) {
-				paper.replace(start, size_t(1), " ");
-				if (input[start] != ' ') {
+				paper.replace(end, size_t(1), " ");
+				//don't decrement when encountering space characters
+				if (input[end] != ' ') {
 					pencil.eraser--;
 				}
 			}
-			start++;
+			//decrement end to start
+			end--;
 		}
 		return true;
 	}

@@ -116,6 +116,13 @@ void test_erase_durability() {
 	//due to eraser running out of durability, erase only last 3 characters
 	string expected = "Buffalo B   ";
 	assert(paper == expected);
+	//set eraser to 2
+	pencil.eraser = 2;
+	string space = "lo B";
+	erase(pencil, paper, space);
+	//since space shouldn't decrement eraser value, 'o' should also be replaced
+	string check_space = "Buffal     ";
+	assert(paper == expected);
 	cout << "test_erase_durability() passed!" << endl;
 }
 
