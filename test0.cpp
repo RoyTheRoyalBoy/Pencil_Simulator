@@ -104,7 +104,17 @@ void test_length() {
 }
 
 void test_erase_durability() {
-
+	//testing the eraser durability
+	Pencil pencil;
+	string paper = "Buffalo Bill";
+	//set eraser durability to 3 to simulate usage
+	pencil.eraser = 3;
+	string Bill = "Bill";
+	erase(paper, Bill);
+	//due to eraser running out of durability, erase only last 3 characters
+	string expected = "Buffalo B   ";
+	assert(paper == expected);
+	cout << "test_erase_durability() passed!" << endl;
 }
 
 int main() {
@@ -114,4 +124,5 @@ int main() {
 	test_point_durability();
 	test_sharpen();
 	test_length();
+	test_erase_durability();
 }
