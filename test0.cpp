@@ -135,13 +135,13 @@ void test_edit() {
 	edit(pencil, paper, onion, erased);
 	//onion is now edited into the white space
 	string expected = "An onion a day keeps the doctor away";
-	cout << paper << endl;
 	assert(paper == expected);
 	//reset paper for another test
 	paper = "An       a day keeps the doctor away";
 	string artichoke = "artichoke";
 	//a collision should result in colliding non-space character to be replaced with @
 	string collision = "An artich@k@ay keeps the doctor away";
+	edit(pencil, paper, artichoke, erased);
 	assert(paper == collision);
 	//assume editing is also affected by eraser and pencil degradation
 	cout << "test_edit() passed!" << endl;

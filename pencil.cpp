@@ -73,19 +73,22 @@ bool edit(Pencil &pencil, string &paper, string &add, string &deleted) {
 		return false;
 	}
 	else {
-		size_t end = start + deleted.length();
-		int index = 0;
-		while(start != end) {
+		for(unsigned int i = 0; i < add.length(); i++) {
 			if (pencil.curr_point > 0) {
-				if(isupper(add[index])) {
+				if(isupper(add[i])) {
 					pencil.curr_point -= 2;
 				}
-				else if(islower(add[index])) {
+				else if(islower(add[i])) {
 					pencil.curr_point--;
 				}
-				paper[start] = add[index];
+				if (paper[start] != ' ') {
+					paper[start] = '@';
+				}
+				else {
+					paper[start] = add[i];
+				}
+				
 			}
-			index++;
 			start++;
 		}
 	}
